@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>حساب من</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <section class="hero" aria-live="polite">
+    <div id="hello" style="font-weight:600"></div>
+    <small id="scope">موجودی همه حساب‌ها</small>
+    <div class="total"><span id="bal">۰</span><span>ریال</span></div>
+    <small id="baltoman"></small>
+  </section>
+  <div class="split">
+    <div><small>کل درآمد</small><b class="in" id="inc">۰</b></div>
+    <div><small>کل هزینه</small><b class="out" id="exp">۰</b></div>
+  </div>
+
+  <h2>حساب‌ها</h2>
+  <div class="accs" id="accs"></div>
+  <div class="newacc">
+    <input id="newname" list="banks" placeholder="نام بانک (مثلاً ملت)" aria-label="نام بانک"><datalist id="banks"></datalist><input id="newnum" inputmode="numeric" dir="ltr" placeholder="شماره حساب (اختیاری)" aria-label="شماره حساب"><input id="newinit" type="number" inputmode="numeric" placeholder="موجودی اولیه (ریال)" aria-label="موجودی اولیه">
+    <button class="btn alt" id="addacc" type="button">افزودن بانک</button>
+  </div>
+  <div class="newacc" id="editnum" style="display:none">
+    <input id="curnum" inputmode="numeric" dir="ltr" placeholder="شماره حساب" aria-label="ویرایش شماره حساب">
+    <input id="curinit" type="number" inputmode="numeric" placeholder="موجودی اولیه (ریال)" aria-label="موجودی اولیه">
+    <button class="btn alt" id="savenum" type="button">ذخیره اطلاعات حساب</button>
+    <button class="btn alt" id="delacc" type="button" style="color:var(--out)">حذف حساب</button>
+    <small id="delmsg" class="empty" role="status" style="width:100%;padding:0"></small>
+  </div>
+
+  <h2>اطلاعات من</h2>
+  <div class="add" style="display:grid">
+    <input id="fn" placeholder="نام" aria-label="نام">
+    <input id="ln" placeholder="نام خانوادگی" aria-label="نام خانوادگی">
+    <input id="bd" class="full" placeholder="تاریخ تولد (مثلاً ۱۳۷۰/۰۵/۱۲)" aria-label="تاریخ تولد">
+    <button class="btn alt full" id="saveinfo" type="button">ذخیره اطلاعات</button>
+    <small id="infomsg" class="full empty" role="status"></small>
+  </div>
+
+  <h2>ثبت تراکنش</h2>
+  <div class="add" id="addbox" style="display:grid">
+    <select id="type" aria-label="نوع"><option value="in">درآمد (واریز)</option><option value="out">هزینه (برداشت)</option></select>
+    <input id="amount" type="number" inputmode="numeric" min="0" placeholder="مبلغ (ریال)" aria-label="مبلغ">
+    <input id="desc" class="full" placeholder="توضیح (مثلاً حقوق، خرید)" aria-label="توضیح">
+    <select id="txacc" class="full" aria-label="حساب"></select>
+    <select id="cat" class="full" aria-label="دسته‌بندی"><option>خوراک</option><option>قبض</option><option>حمل‌ونقل</option><option>خرید</option><option>حقوق</option><option>سایر</option></select>
+    <button class="btn full" id="save" type="button">ثبت تراکنش</button>
+    <button class="btn alt full" id="cancel" type="button" style="display:none">لغو ویرایش</button>
+  </div>
+
+  <h2>هزینه‌ها بر اساس دسته</h2>
+  <div id="chart"></div>
+
+  <h2>تراکنش‌ها <small>(برای ویرایش، روی توضیح بزنید)</small></h2>
+  <input id="q" class="search" type="search" placeholder="جستجو در توضیح یا دسته" aria-label="جستجو">
+  <ul id="list"></ul>
+
+  <h2>پشتیبان‌گیری</h2>
+  <div class="add" style="display:grid">
+    <textarea id="bk" class="full" rows="4" dir="ltr" placeholder="متن پشتیبان اینجا نمایش داده می‌شود. برای بازیابی، متن را اینجا جای‌گذاری کنید." aria-label="متن پشتیبان"></textarea>
+    <button class="btn alt" id="bkout" type="button">تهیه پشتیبان</button>
+    <button class="btn alt" id="bkin" type="button">بازیابی از متن</button>
+    <small id="bkmsg" class="full empty" role="status"></small>
+  </div>
+</main>
+<script src="logos.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
